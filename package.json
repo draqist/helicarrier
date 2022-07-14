@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@apollo/client": "^3.6.9",
     "@chakra-ui/react": "^2.2.4",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
@@ -10,6 +11,7 @@
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^14.2.1",
     "framer-motion": "^6.5.0",
+    "json-graphql-server": "^2.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^3.11.0",
@@ -36,5 +38,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "graphql": "^16.5.0"
   }
 }
