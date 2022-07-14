@@ -1,11 +1,14 @@
 import { gql, useQuery } from '@apollo/client';
 import {
-  Box, Button, Center, ChakraProvider, Flex, Grid, Heading, Select, Spinner, theme
+  Box, Button, Center, ChakraProvider, Flex, Grid, Heading, Spinner, theme
 } from '@chakra-ui/react';
+import { useState } from 'react';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import Items from './components/Items';
+import useQUERY from './'
 
 function App() {
+  const [theValue, setValue] = useState('')
   const FILTERQUERY = gql`
   {
       allDates {
@@ -18,7 +21,7 @@ function App() {
       }
   }
   `;
-  const { data, loading, error } = useQuery(FILTERQUERY);
+  const { data, loading, refetch, error } = useQuery(FILTERQUERY,);
   if (loading) return (
     <Center h='100vh' w='100vw'>
       <Spinner w='60px' h='60px' color='white'/>
@@ -32,17 +35,14 @@ function App() {
           <ColorModeSwitcher justifySelf="flex-end" />
           <Heading color={"current"} fontFamily='Oswald'> HeliCarrier</Heading>
           <Flex direction={['column', 'row', 'row']} justifyContent={'center'} gap={['6', '', '20']} mt='18px' alignItems='center'>
-            <Select placeholder='Sort By'>
-              <option value={'option 1'}> Date (Ascending) </option>
-              <option value={'option 2'}> Date (Descending) </option>
-              <option value='type 1'> Type </option>
-            </Select>
-            <Button>Select</Button>
-            <Button>Select</Button>
-            <Button>Select</Button>
+            <Button onClick={() => useQUERY()}>
+              Completed
+            </Button>
+            <Button> Pending </Button>
+            <Button> Awaiting Confirmation </Button>
           </Flex>
           {
-            data.allDates.map((newdata, i) => <Items key={i} res={newdata} /> )
+            data.allDates.map((newdata, i) => <Items selectedValue={theValue} key={i} res={newdata} /> )
           }
         </Grid>
       </Box>
