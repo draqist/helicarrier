@@ -1,6 +1,6 @@
-## This app was built as a partial requirement for the Frontend Engineering assesment for HeliCarrier.
+# This app was built as a partial requirement for the Frontend Engineering assesment for HeliCarrier.
 
-- Deliverables :
+Deliverables :
  * Framework (React)
  * Fetch Data from a graphQL API and render the data.
  * Data must contain at least 20 rows of data groups with different dates
