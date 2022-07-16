@@ -1,10 +1,10 @@
 module.exports = {
   dates: [
-    {id: 1, date: 'July 14 2022', status_id: 12},
-    {id: 2, date: 'July 15 2022', status_id: 02},
-    {id: 3, date: 'July 16 2022', status_id: 03},
-    {id: 4, date: 'July 17 2022', status_id: 04},
-    {id: 5, date: 'July 18 2022', status_id: 05 }
+    {id: 1, date: 'July 14 2022', status_id: 1},
+    {id: 2, date: 'July 15 2022', status_id: 2},
+    {id: 3, date: 'July 16 2022', status_id: 3},
+    {id: 4, date: 'July 17 2022', status_id: 4},
+    {id: 5, date: 'July 18 2022', status_id: 5 }
   ],
   statuses: [
     {date_id: 1, title: ['Transaction 1'], type:[ 'Completed'],},

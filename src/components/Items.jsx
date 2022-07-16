@@ -7,9 +7,10 @@ import { queryData } from '../atom';
 const Items = ({ }) => {
   const [theValue, setCompleted] = useState(false);
   const [querydata, setData] = useRecoilState(queryData);
+  const [id, setId] =  useState()
   const QUERY = gql` 
   ${theValue ?
-      `{allDates (filter: {id: 1}) {
+      `{allDates (filter: {id: ${id}}) {
       date
       Statuses{
         type
@@ -17,7 +18,7 @@ const Items = ({ }) => {
         date_id
       }
     }
-  }}` : `
+  }` : `
   {
     allDates {
       date
@@ -28,6 +29,7 @@ const Items = ({ }) => {
       }
     }
 }`}`
+  
 const { data, loading, error } = useQuery(QUERY);
   setData(data)
   if (loading) return (
@@ -39,12 +41,30 @@ const { data, loading, error } = useQuery(QUERY);
   return (
     <>
       <Flex direction={['column', 'row', 'row']} justifyContent={'center'} gap={['6', '', '20']} mt='18px' alignItems='center'>
-            <Button onClick={() => setCompleted(true)}>
-              Completed
-            </Button>
-            <Button> Pending </Button>
-            <Button> Dispute </Button>
-            <Button> Cancelled </Button>
+        <Button onClick={() => {
+          setId(1)
+          setCompleted(true);
+        }}>
+          14th of July
+        </Button>
+        <Button onClick={() => {
+          setId(2);
+          setCompleted(true);
+        }}> 15th of July </Button>
+        <Button onClick={() => {
+          setId(3)
+          setCompleted(true);
+        }}> 16th of July </Button>
+            <Button  onClick={() => {
+          setId(4)
+          setCompleted(true);
+        }
+        }> 17th of July </Button>
+            <Button  onClick={() => {
+          setId(5)
+          setCompleted(true);
+        }
+        }> 18th of July </Button>
           </Flex>
       <Box py='10px' mt={['20px', '20px', '40px']} textAlign='left'>
         {
